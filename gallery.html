@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery – Dr. Benard Gichina Mukuria, Dermatologist Nairobi</title>
+  <meta name="description" content="Before and after treatment photos from Dr. Benard Gichina Mukuria's dermatology practice in Nairobi.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #0d2b45; --navy-mid: #163d5f;
+    --teal: #1a7b6b; --teal-light: #e8f4f1; --teal-mid: #c2dfd9;
+    --off-white: #f5f6f8; --white: #fff; --border: #e2e7ec;
+    --text: #1c2b38; --text-mid: #3e5462; --text-light: #7a8fa0;
+    --green: #25D366;
+    --font-head: 'Cormorant Garamond', Georgia, serif;
+    --font-body: 'DM Sans', system-ui, sans-serif;
+  }
+  html  { scroll-behavior: smooth; }
+  body  { font-family: var(--font-body); color: var(--text); background: var(--off-white); -webkit-font-smoothing: antialiased; }
+  img   { display: block; max-width: 100%; }
+  a     { text-decoration: none; color: inherit; }
+
+  .container { max-width: 1160px; margin: 0 auto; padding: 0 16px; }
+
+  /* BUTTONS */
+  .btn { display: inline-flex; align-items: center; gap: 7px; font-family: var(--font-body); font-size: .85rem; font-weight: 600; padding: 11px 22px; border-radius: 6px; border: 2px solid transparent; cursor: pointer; transition: all .18s; }
+  .btn-wa  { background: var(--green); color: #fff; border-color: var(--green); }
+  .btn-wa:hover { background: #1fb757; }
+  .btn-wa svg { width: 15px; height: 15px; fill: #fff; flex-shrink: 0; }
+  .btn-outline { background: transparent; color: #fff; border-color: rgba(255,255,255,.4); }
+  .btn-outline:hover { border-color: #fff; }
+
+  /* STICKY WA */
+  .wa-sticky { position: fixed; bottom: 20px; right: 20px; z-index: 999; background: var(--green); color: #fff; display: flex; align-items: center; gap: 8px; padding: 12px 18px; border-radius: 50px; font-size: .82rem; font-weight: 600; box-shadow: 0 4px 20px rgba(37,211,102,.4); transition: transform .2s; }
+  .wa-sticky:hover { transform: translateY(-2px); }
+  .wa-sticky svg { fill: #fff; width: 17px; height: 17px; flex-shrink: 0; }
+  @media (max-width: 560px) { .wa-sticky .wa-label { display: none; } .wa-sticky { padding: 13px; border-radius: 50%; } }
+
+  /* MOBILE MENU */
+  .mobile-menu { display: none; position: fixed; inset: 0; background: #fff; z-index: 2000; flex-direction: column; align-items: center; justify-content: center; gap: 20px; }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { font-family: var(--font-head); font-size: 1.8rem; color: var(--text); font-weight: 500; }
+  .mobile-menu a.active, .mobile-menu a:hover { color: var(--teal); }
+  .mobile-close { position: absolute; top: 20px; right: 20px; background: none; border: none; font-size: 1.4rem; cursor: pointer; color: var(--text-light); }
+
+  /* NAV */
+  nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.97); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 0 20px; height: 64px; transition: box-shadow .3s; }
+  nav.scrolled { box-shadow: 0 2px 20px rgba(13,43,69,.09); }
+  .nav-brand { display: flex; align-items: center; gap: 10px; }
+  .nav-brand img { height: 38px; width: auto; object-fit: contain; display: block; }
+  .nav-brand-text { display: flex; flex-direction: column; line-height: 1.2; }
+  .brand-name { font-family: var(--font-head); font-size: 1rem; font-weight: 700; color: var(--navy); }
+  .brand-sub  { font-size: .62rem; color: var(--text-light); letter-spacing: .04em; text-transform: uppercase; }
+  .nav-links  { list-style: none; display: flex; gap: 2px; }
+  .nav-links a { font-size: .82rem; font-weight: 500; color: var(--text-mid); padding: 6px 11px; border-radius: 5px; transition: all .18s; }
+  .nav-links a:hover { color: var(--navy); background: var(--off-white); }
+  .nav-links a.active { color: var(--teal); font-weight: 600; }
+  .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; background: none; border: none; }
+  .nav-hamburger span { width: 22px; height: 2px; background: var(--navy); border-radius: 2px; }
+  @media (max-width: 860px) { .nav-links { display: none; } .nav-hamburger { display: flex; } nav { padding: 0 16px; } }
+
+  /* PAGE HERO */
+  .page-hero { background: var(--navy); padding: 48px 0 40px; text-align: center; }
+  .page-hero h1 { font-family: var(--font-head); font-size: clamp(1.9rem, 4vw, 3rem); color: #fff; margin-bottom: 8px; font-weight: 700; }
+  .page-hero h1 em { font-style: italic; color: var(--teal-mid); }
+  .page-hero p { color: rgba(255,255,255,.6); font-size: .9rem; max-width: 480px; margin: 0 auto; }
+
+  /* FILTER TABS */
+  .filter-wrap { background: #fff; border-bottom: 1px solid var(--border); position: sticky; top: 64px; z-index: 90; }
+  .filter-tabs { display: flex; overflow-x: auto; scrollbar-width: none; max-width: 1160px; margin: 0 auto; padding: 0 16px; -webkit-overflow-scrolling: touch; }
+  .filter-tabs::-webkit-scrollbar { display: none; }
+  .filter-btn { flex-shrink: 0; padding: 13px 16px; font-family: var(--font-body); font-size: .78rem; font-weight: 600; color: var(--text-light); background: none; border: none; border-bottom: 3px solid transparent; cursor: pointer; transition: all .18s; white-space: nowrap; }
+  .filter-btn:hover { color: var(--navy); }
+  .filter-btn.active { color: var(--teal); border-bottom-color: var(--teal); }
+
+  /* MAIN CONTENT */
+  .gallery-main { padding: 40px 0 64px; }
+
+  /* CONSENT NOTE */
+  .consent-note { text-align: center; font-size: .78rem; color: var(--text-light); margin-bottom: 36px; max-width: 520px; margin-left: auto; margin-right: auto; line-height: 1.6; }
+
+  /* CATEGORY BLOCK */
+  .gcat { display: none; }
+  .gcat.active { display: block; }
+  .gcat-head { margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+  .gcat-label { font-size: .65rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--teal); display: block; margin-bottom: 4px; }
+  .gcat-head h2 { font-family: var(--font-head); font-size: 1.55rem; font-weight: 700; color: var(--navy); line-height: 1.2; }
+  .gcat-head p  { font-size: .84rem; color: var(--text-mid); margin-top: 4px; line-height: 1.6; }
+
+  /* PHOTO GRID */
+  .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 48px;
+  }
+  @media (min-width: 540px) { .photo-grid { grid-template-columns: repeat(3, 1fr); gap: 14px; } }
+  @media (min-width: 860px) { .photo-grid { grid-template-columns: repeat(4, 1fr); gap: 16px; } }
+
+  /* PHOTO CARD */
+  .photo-card {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--border);
+    cursor: pointer;
+    aspect-ratio: 1 / 1;
+  }
+  .photo-card:hover .photo-overlay { opacity: 1; }
+  .photo-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform .3s ease;
+  }
+  .photo-card:hover img { transform: scale(1.04); }
+  .photo-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(13,43,69,.55);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 12px;
+    opacity: 0;
+    transition: opacity .25s;
+  }
+  .photo-label {
+    font-size: .72rem;
+    font-weight: 600;
+    color: #fff;
+    text-align: center;
+    line-height: 1.3;
+    background: rgba(0,0,0,.35);
+    padding: 5px 10px;
+    border-radius: 4px;
+    backdrop-filter: blur(4px);
+  }
+  /* BA badge */
+  .ba-badge {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    background: var(--teal);
+    color: #fff;
+    font-size: .58rem;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 3px;
+    z-index: 1;
+  }
+
+  /* LIGHTBOX */
+  .lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.92);
+    z-index: 3000;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+  }
+  .lightbox.open { display: flex; }
+  .lb-inner { position: relative; max-width: 860px; width: 100%; }
+  .lb-inner img { width: 100%; max-height: 80vh; object-fit: contain; border-radius: 6px; display: block; }
+  .lb-close { position: absolute; top: -40px; right: 0; background: none; border: none; color: #fff; font-size: 1.5rem; cursor: pointer; line-height: 1; padding: 4px 8px; }
+  .lb-caption { color: rgba(255,255,255,.7); font-size: .82rem; text-align: center; margin-top: 12px; }
+  .lb-nav { display: flex; justify-content: space-between; position: absolute; top: 50%; left: -48px; right: -48px; transform: translateY(-50%); pointer-events: none; }
+  .lb-nav button { pointer-events: all; background: rgba(255,255,255,.12); border: none; color: #fff; font-size: 1.4rem; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background .18s; }
+  .lb-nav button:hover { background: rgba(255,255,255,.25); }
+  @media (max-width: 640px) { .lb-nav { left: 0; right: 0; top: auto; bottom: -52px; transform: none; justify-content: center; gap: 16px; } }
+
+  /* CTA BLOCK */
+  .gallery-cta { background: var(--navy); border-radius: 10px; padding: 44px 32px; text-align: center; margin-top: 16px; }
+  .gallery-cta h2 { font-family: var(--font-head); font-size: clamp(1.6rem,3vw,2.2rem); color: #fff; margin-bottom: 10px; }
+  .gallery-cta p { color: rgba(255,255,255,.6); font-size: .9rem; max-width: 440px; margin: 0 auto 24px; line-height: 1.7; }
+  .gallery-cta-btns { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+
+  /* FOOTER */
+  footer { background: #07192a; color: rgba(255,255,255,.55); padding: 48px 0 0; margin-top: 0; }
+  .ft { max-width: 1160px; margin: 0 auto; padding: 0 16px 40px; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; }
+  @media (max-width: 640px) { .ft { grid-template-columns: 1fr; gap: 24px; } }
+  .fb-logo { font-family: var(--font-head); font-size: 1.15rem; font-weight: 700; color: #fff; display: block; margin-bottom: 4px; }
+  .fb-logo span { color: var(--teal-mid); }
+  .fb-sub  { display: block; font-size: .62rem; color: rgba(255,255,255,.28); letter-spacing: .06em; text-transform: uppercase; margin-bottom: 10px; }
+  footer p { font-size: .8rem; color: rgba(255,255,255,.35); line-height: 1.65; }
+  .fc h4 { font-size: .65rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.32); margin-bottom: 12px; }
+  .fc ul { list-style: none; }
+  .fc li { margin-bottom: 8px; }
+  .fc a { font-size: .8rem; color: rgba(255,255,255,.48); transition: color .18s; }
+  .fc a:hover { color: #fff; }
+  .fbot { border-top: 1px solid rgba(255,255,255,.06); padding: 16px; max-width: 1160px; margin: 0 auto; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px; font-size: .7rem; color: rgba(255,255,255,.22); }
+  </style>
+</head>
+<body>
+
+<!-- WA sticky -->
+<a class="wa-sticky" href="https://wa.me/254722676339?text=Hello%20Dr.%20Benard%2C%20I%20would%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  <span class="wa-label">Book on WhatsApp</span>
+</a>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="closeMobile()">&#10005;</button>
+  <a href="index.html">Home</a>
+  <a href="services.html">Services</a>
+  <a href="about.html">About</a>
+  <a href="gallery.html" class="active">Gallery</a>
+  <a href="reviews.html">Reviews</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<!-- Nav -->
+<nav id="mainNav">
+  <a class="nav-brand" href="index.html">
+    <img src="https://i.postimg.cc/7hm4jTFV/Mar_19_2026_04_14_20_PM.png" alt="Dr. Benard Logo">
+    <div class="nav-brand-text">
+      <span class="brand-name">Dr. Benard Gichina Mukuria</span>
+      <span class="brand-sub">General &amp; Pediatric Dermatologist &middot; Nairobi</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="gallery.html" class="active">Gallery</a></li>
+    <li><a href="reviews.html">Reviews</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <button class="nav-hamburger" onclick="openMobile()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Hero -->
+<section class="page-hero">
+  <div class="container">
+    <h1>Photo <em>Gallery</em></h1>
+    <p>Treatment results and clinic imagery &mdash; shared with patient consent</p>
+  </div>
+</section>
+
+<!-- Filter tabs -->
+<div class="filter-wrap">
+  <div class="filter-tabs" role="tablist">
+    <button class="filter-btn active" onclick="showCat('all',this)"          role="tab">All Photos</button>
+    <button class="filter-btn"        onclick="showCat('before-after',this)" role="tab">Before &amp; After</button>
+    <button class="filter-btn"        onclick="showCat('medical',this)"      role="tab">Medical</button>
+    <button class="filter-btn"        onclick="showCat('cosmetic',this)"     role="tab">Cosmetic</button>
+    <button class="filter-btn"        onclick="showCat('correction',this)"   role="tab">Skin Correction</button>
+    <button class="filter-btn"        onclick="showCat('hair',this)"         role="tab">Hair &amp; Scalp</button>
+    <button class="filter-btn"        onclick="showCat('clinic',this)"       role="tab">Clinic</button>
+  </div>
+</div>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <div class="lb-inner">
+    <button class="lb-close" onclick="closeLightboxBtn()">&#10005;</button>
+    <img id="lb-img" src="" alt="">
+    <div class="lb-caption" id="lb-caption"></div>
+    <div class="lb-nav">
+      <button onclick="lbNav(-1)">&#8592;</button>
+      <button onclick="lbNav(1)">&#8594;</button>
+    </div>
+  </div>
+</div>
+
+<!-- Gallery content -->
+<section class="gallery-main">
+  <div class="container">
+    <p class="consent-note">All patient images are shared with written consent. Individual results vary depending on the condition and treatment protocol.</p>
+
+    <!-- ① ALL (shown by default — same images listed once each) -->
+    <div id="cat-all" class="gcat active">
+      <div class="photo-grid" id="grid-all"></div>
+    </div>
+
+    <!-- ② BEFORE & AFTER -->
+    <div id="cat-before-after" class="gcat">
+      <div class="gcat-head">
+        <span class="gcat-label">Patient Results</span>
+        <h2>Before &amp; After</h2>
+        <p>Real results from real patients. Individual results vary depending on the condition and treatment protocol.</p>
+      </div>
+      <div class="photo-grid">
+        <div class="photo-card" onclick="openLightbox(this)">
+          <span class="ba-badge">Before &amp; After</span>
+          <img src="https://i.postimg.cc/R0ZmT27T/before-vs-after.jpg" alt="Acne treatment before and after" loading="lazy">
+          <div class="photo-overlay"><span class="photo-label">Acne Treatment</span></div>
+        </div>
+        <div class="photo-card" onclick="openLightbox(this)">
+          <span class="ba-badge">Before &amp; After</span>
+          <img src="https://i.postimg.cc/QtRrhtR4/before-and-fater.jpg" alt="Melasma treatment before and after" loading="lazy">
+          <div class="photo-overlay"><span class="photo-label">Melasma Treatment</span></div>
+        </div>
+        <div class="photo-card" onclick="openLightbox(this)">
+          <span class="ba-badge">Before &amp; After</span>
+          <img src="https://i.postimg.cc/QxgrZjSB/before-and-after-2.jpg" alt="Eczema treatment before and after" loading="lazy">
+          <div class="photo-overlay"><span class="photo-label">Eczema</span></div>
+        </div>
+        <div class="photo-card" onclick="openLightbox(this)">
+          <span class="ba-badge">Before &amp; After</span>
+          <img src="https://i.postimg.cc/VNvytnwM/before-and-after-1.jpg" alt="Hyperpigmentation treatment" loading="lazy">
+          <div class="photo-overlay"><span class="photo-label">Hyperpigmentation</span></div>
+        </div>
+        <div class="photo-card" onclick="openLightbox(this)">
+          <span class="ba-badge">Before &amp; After</span>
+          <img src="https://i.postimg.cc/mD10X4tB/before-vs-after.webp" alt="Acne scars before and after" loading="lazy">
+          <div class="photo-overlay"><span class="photo-label">Acne Scars</span></div>
+        </div>
+        <div class="photo-card" onclick="openLightbox(this)">
+          <span class="ba-badge">Result</span>
+          <img src="https://i.postimg.cc/TY6Z9ZGv/clear-skin.webp" alt="Clear skin after treatment" loading="lazy">
+          <div class="photo-overlay"><span class="photo-label">Clear Skin Result</span></div>
+        </div>
+        <div class="photo-card" onclick="openLightbox(this)">
+          <span class="ba-badge">Before &amp; After</span>
+          <img src="https://meltonaestheticsclinic.com/images/PRPHairlinebeforeandafter.jpg" alt="PRP hair restoration before and after" loading="lazy">
+          <div class="photo-overlay"><span class="photo-label">PRP Hair Restoration</span></div>
+        </div>
+        <div class="photo-card" onclick="openLightbox(this)">
+          <span class="ba-badge">Before &amp; After</span>
+          <img src="https://meltonaestheticsclinic.com/images/ScarRemoval.jpg" alt="Scar removal before and after" loading="lazy">
+          <div class="photo-overlay"><span class="photo-label">Scar Removal</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ③ MEDICAL -->
+    <div id="cat-medical" class="gcat">
+      <div class="gcat-head">
+        <span class="gcat-label">Medical Dermatology</span>
+        <h2>Medical Skin Conditions</h2>
+        <p>Eczema, acne, psoriasis, vitiligo, skin infections, and general dermatology.</p>
+      </div>
+      <div class="photo-grid">
+        <div class="photo-card" onclick="openLightbox(this)">
+          <img src="https://i.postimg.cc/fWmjhfgV/ee-landingpage-imagegrid11-en-us.jpg" alt="Eczema and atopic dermatitis" loading="lazy">
+          <div class="photo-overlay"><span class="photo-label">Eczema &amp; Atopic Dermatitis</span></div>
+        </div>
+        <div class="photo-card" onclick="openLightbox(this)">
+          <img src="https://i.postimg.cc/0yFbQLz6/1-whiteheads-types-of-acne-3270070.jpg" alt="Acne types treatment" loading="lazy">
+          <div class="photo-overlay"><span class="photo-label">Acne</span></div>
+        </div>
+        <div class="photo-card" onclick="openLightbox(this)">
+          <img src="https://i.postimg.cc/TYhdDtMD/merlin-176197005-85f40b1e-f088-495b-8d0f-967d26703499-article-Large.webp" alt="Skin infections treatment" loading="lazy">
+          <div class="photo-overlay"><span class="photo-label">Skin Infections</span></div>
+        </div>
+        <div class="photo-card" onclick="openLightbox(this)">
+          <img src="https://i.postimg.cc/tRc0Lyfc/psoriasis-vs-eczema-on-black-skin-atopic-dermatitis-2472547.webp" alt="Psoriasis on dark skin" loading="lazy">
+          <div class="photo-overlay"><span class="photo-label">Psoriasis on Dark Skin</span></div>
+        </div>
+        <div class="photo-card" onclick="openLightbox(this)">
+          <img src="https://i.postimg.cc/L4gR4nz3/vitiligo-symptoms.jpg" alt="Vitiligo and pigmentary disorders" loading="lazy">
+          <div class="photo-overlay"><span class="photo-label">Vitiligo</span></div>
+        </div>
+        <div class="photo-card" onclick="openLightbox(this)">
+          <img src="https://i.postimg.cc/L5KW86pq/istockphoto-1702241012-612x612.jpg" alt="Skin check-up consultation" loading="lazy">
+          <div class="photo-overlay"><span class="photo-label">Skin Check-up</span></div>
+        </div>
+        <div class="photo-card" onclick="openLightbox(this)">
+          <img src="https://i.postimg.cc/5t8LMxnS/skin-rashes.jpg" alt="Newborn rashes and birthmarks" loading="lazy">
+          <div class="photo-overlay"><span class="photo-label">Newborn Rashes</span></div>
+        </div>
+        <div class="photo-card" onclick="openLightbox(this)">
+          <img src="https://i.postimg.cc/DzQJMxz3/eczea-teewartment.webp" alt="Childhood eczema management" loading="lazy">
+          <div class="photo-overlay"><span class="photo-label">Childhood Eczema</span></div>
+        </div>
+        <div class="photo-card" onclick="openLightbox(this)">
+          <img src="https://i.postimg.cc/sXDX0y8G/acne-paedtriact.jpg" alt="Paediatric acne treatment" loading="lazy">
+          <div class="photo-overlay"><span class="photo-label">Paediatric Acne</span></div>
+        </div>
+        <div class="photo-card" onclick="openLightbox(this)">
+          <img src="https://i.postimg.cc/NMMskD9n/shutterstock-1154905705-2-1.jpg" alt="Complex skin disorders" loading="lazy">
+          <div class="photo-overlay"><span class="photo-label">Complex Skin Disorders</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ④ COSMETIC -->
+    <div id="cat-cosmetic" class="gcat">
+      <div class="gcat-head">
+        <span class="gcat-label">Cosmetic &amp; Aesthetic</span>
+        <h2>Cosmetic Treatments</h2>
+        <p>HydraFacial, Botox, fillers, microneedling, mesotherapy, and IV therapy.</p>
+      </div>
+      <div class="photo-grid">
+        <div class="photo-card" onclick="openLightbox(this)">
+          <img src="https://meltonaestheticsclinic.com/images/HydraFacial%20clinic%20spa%20around%20me%20,%20kilimani,%20ngong%20road,%20Kenya.jpg" alt="HydraFacial treatment" loading="lazy">
+          <div class="photo-overlay"><span class="photo-label">HydraFacial</span></div>
+        </div>
+        <div class="photo-card" onclick="openLightbox(this)">
+          <img src="https://meltonaestheticsclinic.com/images/service2.png" alt="Microneedling" loading="lazy">
+          <div class="photo-overlay"><span class="photo-label">Microneedling</span></div>
+        </div>
+        <div class="photo-card" onclick="openLightbox(this)">
+          <img src="https://meltonaestheticsclinic.com/images/service3.png" alt="Botox anti-wrinkle injections" loading="lazy">
+          <div class="photo-overlay"><span class="photo-label">Botox &amp; Anti-Wrinkle</span></div>
+        </div>
+        <div class="photo-card" onclick="openLightbox(this)">
+          <img src="https://meltonaestheticsclinic.com/images/service4.jpg" alt="Chemical peel" loading="lazy">
+          <div class="photo-overlay"><span class="photo-label">Chemical Peels</span></div>
+        </div>
+        <div class="photo-card" onclick="openLightbox(this)">
+          <img src="https://meltonaestheticsclinic.com/images/service5.png" alt="Dermal fillers" loading="lazy">
+          <div class="photo-overlay"><span class="photo-label">Dermal Fillers</span></div>
+        </div>
+        <div class="photo-card" onclick="openLightbox(this)">
+          <img src="https://meltonaestheticsclinic.com/images/UnderEyeFiller.jpg" alt="Under eye filler" loading="lazy">
+          <div class="photo-overlay"><span class="photo-label">Under Eye Filler</span></div>
+        </div>
+        <div class="photo-card" onclick="openLightbox(this)">
+          <img src="https://meltonaestheticsclinic.com/images/smileline.jpg" alt="Laugh lines filler" loading="lazy">
+          <div class="photo-overlay"><span class="photo-label">Laugh Lines Filler</span></div>
+        </div>
+        <div class="photo-card" onclick="openLightbox(this)">
+          <img src="https://meltonaestheticsclinic.com/images/service8.png" alt="Mesotherapy" loading="lazy">
+          <div class="photo-overlay"><span class="photo-label">Mesotherapy</span></div>
+        </div>
+        <div class="photo-card" onclick="openLightbox(this)">
+          <img src="https://meltonaestheticsclinic.com/images/service9.jpg" alt="Bio stimulation facial" loading="lazy">
+          <div class="photo-overlay"><span class="photo-label">Bio Stimulation</span></div>
+        </div>
+        <div class="photo-card" onclick="openLightbox(this)">
+          <img src="https://meltonaestheticsclinic.com/images/service10.png" alt="IV Glutathione and vitamins" loading="lazy">
+          <div class="photo-overlay"><span class="photo-label">IV Glutathione &amp; Vitamins</span></div>
+        </div>
+        <div class="photo-card" onclick="openLightbox(this)">
+          <img src="https://i.postimg.cc/VsjhdDMP/Laser-Treatment.jpg" alt="Laser therapy" loading="lazy">
+          <div class="photo-overlay"><span class="photo-label">Laser Therapy</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ⑤ SKIN CORRECTION -->
+    <div id="cat-correction" class="gcat">
+      <div class="gcat-head">
+        <span class="gcat-label">Skin Correction &amp; Brightening</span>
+        <h2>Pigmentation &amp; Scarring</h2>
+        <p>Melasma, dark knuckles, scar removal, keloids, and stretch marks.</p>
+      </div>
+      <div class="photo-grid">
+        <div class="photo-card" onclick="openLightbox(this)">
+          <img src="https://meltonaestheticsclinic.com/images/service14.jpg" alt="Melasma treatment" loading="lazy">
+          <div class="photo-overlay"><span class="photo-label">Melasma</span></div>
+        </div>
+        <div class="photo-card" onclick="openLightbox(this)">
+          <img src="https://meltonaestheticsclinic.com/images/DarkKnucklesTreatment.jpg" alt="Dark knuckles treatment" loading="lazy">
+          <div class="photo-overlay"><span class="photo-label">Dark Knuckles</span></div>
+        </div>
+        <div class="photo-card" onclick="openLightbox(this)">
+          <img src="https://meltonaestheticsclinic.com/images/ScarRemoval.jpg" alt="Scar removal" loading="lazy">
+          <div class="photo-overlay"><span class="photo-label">Scar Removal</span></div>
+        </div>
+        <div class="photo-card" onclick="openLightbox(this)">
+          <img src="https://i.postimg.cc/pXL1PK2M/keloids.avif" alt="Keloid treatment" loading="lazy">
+          <div class="photo-overlay"><span class="photo-label">Keloids</span></div>
+        </div>
+        <div class="photo-card" onclick="openLightbox(this)">
+          <img src="https://meltonaestheticsclinic.com/images/service17.jpg" alt="Stretch marks treatment" loading="lazy">
+          <div class="photo-overlay"><span class="photo-label">Stretch Marks</span></div>
+        </div>
+        <div class="photo-card" onclick="openLightbox(this)">
+          <img src="https://meltonaestheticsclinic.com/images/service18.png" alt="Skin cancer mole check" loading="lazy">
+          <div class="photo-overlay"><span class="photo-label">Mole Check</span></div>
+        </div>
+        <div class="photo-card" onclick="openLightbox(this)">
+          <img src="https://meltonaestheticsclinic.com/images/SkinTagsMolesWarts.jpg" alt="Skin tags moles warts" loading="lazy">
+          <div class="photo-overlay"><span class="photo-label">Skin Tags &amp; Moles</span></div>
+        </div>
+        <div class="photo-card" onclick="openLightbox(this)">
+          <img src="https://i.postimg.cc/FFg2r93B/Curettage.jpg" alt="Curettage procedure" loading="lazy">
+          <div class="photo-overlay"><span class="photo-label">Curettage</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ⑥ HAIR & SCALP -->
+    <div id="cat-hair" class="gcat">
+      <div class="gcat-head">
+        <span class="gcat-label">Hair &amp; Scalp</span>
+        <h2>Hair Restoration</h2>
+        <p>PRP hair restoration, hair loss treatment, and scalp conditions.</p>
+      </div>
+      <div class="photo-grid">
+        <div class="photo-card" onclick="openLightbox(this)">
+          <span class="ba-badge">Before &amp; After</span>
+          <img src="https://meltonaestheticsclinic.com/images/PRPHairlinebeforeandafter.jpg" alt="PRP hair restoration before and after" loading="lazy">
+          <div class="photo-overlay"><span class="photo-label">PRP Hair Restoration</span></div>
+        </div>
+        <div class="photo-card" onclick="openLightbox(this)">
+          <img src="https://i.postimg.cc/1t0Y3HnS/hair-loss.jpg" alt="Hair loss treatment" loading="lazy">
+          <div class="photo-overlay"><span class="photo-label">Hair Loss &amp; Alopecia</span></div>
+        </div>
+        <div class="photo-card" onclick="openLightbox(this)">
+          <img src="https://meltonaestheticsclinic.com/images/service9.jpg" alt="Scalp treatment" loading="lazy">
+          <div class="photo-overlay"><span class="photo-label">Scalp Conditions</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ⑦ CLINIC -->
+    <div id="cat-clinic" class="gcat">
+      <div class="gcat-head">
+        <span class="gcat-label">Our Practice</span>
+        <h2>Clinic &amp; Treatments</h2>
+        <p>Inside Dr. Benard's practice at Landmark Plaza, Nairobi.</p>
+      </div>
+      <div class="photo-grid">
+        <div class="photo-card" onclick="openLightbox(this)">
+          <img src="https://i.postimg.cc/vBnN7vNg/Dermatology-services.jpg" alt="Dermatology consultation" loading="lazy">
+          <div class="photo-overlay"><span class="photo-label">Consultation</span></div>
+        </div>
+        <div class="photo-card" onclick="openLightbox(this)">
+          <img src="https://i.postimg.cc/VsjhdDMP/Laser-Treatment.jpg" alt="Laser treatment" loading="lazy">
+          <div class="photo-overlay"><span class="photo-label">Laser Therapy</span></div>
+        </div>
+        <div class="photo-card" onclick="openLightbox(this)">
+          <img src="https://i.postimg.cc/XYv11WPW/SOSU-Complete-Canvas-Complexion-Palette-Dark-4-56685.jpg" alt="Cosmetic skincare products" loading="lazy">
+          <div class="photo-overlay"><span class="photo-label">Cosmetic Products</span></div>
+        </div>
+        <div class="photo-card" onclick="openLightbox(this)">
+          <img src="https://i.postimg.cc/T19QQNqb/Sz-Txennh-INNy1f-Xj-UOg-G7zt-By-Lmi-S1w-E6DBg241e.webp" alt="Personalised skincare" loading="lazy">
+          <div class="photo-overlay"><span class="photo-label">Personalised Skincare</span></div>
+        </div>
+        <div class="photo-card" onclick="openLightbox(this)">
+          <img src="https://meltonaestheticsclinic.com/images/HydraFacial%20clinic%20spa%20around%20me%20,%20kilimani,%20ngong%20road,%20Kenya.jpg" alt="HydraFacial clinic" loading="lazy">
+          <div class="photo-overlay"><span class="photo-label">HydraFacial Treatment Room</span></div>
+        </div>
+        <div class="photo-card" onclick="openLightbox(this)">
+          <img src="https://meltonaestheticsclinic.com/images/Hyperhidrosis&SweatyPalmTreatment.jpg" alt="Hyperhidrosis treatment" loading="lazy">
+          <div class="photo-overlay"><span class="photo-label">Hyperhidrosis Treatment</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="gallery-cta">
+      <h2>Ready for Clearer Skin?</h2>
+      <p>Book a consultation and let Dr. Benard put together a treatment plan tailored to your skin.</p>
+      <div class="gallery-cta-btns">
+        <a href="https://wa.me/254722676339?text=Hello%20Dr.%20Benard%2C%20I%20would%20like%20to%20book%20a%20consultation." target="_blank" class="btn btn-wa">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Book a Consultation
+        </a>
+        <a href="services.html" class="btn btn-outline">View All Services</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="ft">
+    <div class="fb">
+      <span class="fb-logo">Dr. <span>Benard Gichina</span> Mukuria</span>
+      <span class="fb-sub">General &amp; Pediatric Dermatologist</span>
+      <p>Expert skin care for all ages at Landmark Plaza, opposite Nairobi Hospital.</p>
+    </div>
+    <div class="fc"><h4>Explore</h4><ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="reviews.html">Reviews</a></li>
+    </ul></div>
+    <div class="fc"><h4>Contact</h4><ul>
+      <li><a href="https://wa.me/254722676339">WhatsApp: 0722 676 339</a></li>
+      <li><a href="tel:+254722676339">Call: 0722 676 339</a></li>
+      <li><a href="tel:+254111632411">Alt: 0111 632 411</a></li>
+      <li><a href="contact.html">Get Directions</a></li>
+    </ul></div>
+  </div>
+  <div class="fbot">
+    <span>&copy; 2026 Dr. Benard Gichina Mukuria &mdash; Dermatologist, Nairobi</span>
+    <span>Landmark Plaza &middot; Opposite Nairobi Hospital</span>
+  </div>
+</footer>
+
+<script>
+  /* ── NAV SHADOW ── */
+  window.addEventListener('scroll', () => {
+    document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 10);
+  });
+
+  function openMobile()  { document.getElementById('mobileMenu').classList.add('open');    document.body.style.overflow = 'hidden'; }
+  function closeMobile() { document.getElementById('mobileMenu').classList.remove('open'); document.body.style.overflow = ''; }
+
+  /* ── CATEGORY FILTER ── */
+  function showCat(id, btn) {
+    document.querySelectorAll('.gcat').forEach(c => c.classList.remove('active'));
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('cat-' + id).classList.add('active');
+    btn.classList.add('active');
+    window.scrollTo({ top: document.querySelector('.filter-wrap').offsetTop - 64, behavior: 'smooth' });
+  }
+
+  /* ── BUILD "ALL" GRID on page load ── */
+  const allImages = [
+    { src: 'https://i.postimg.cc/R0ZmT27T/before-vs-after.jpg',         label: 'Acne Before & After',       ba: true  },
+    { src: 'https://i.postimg.cc/QtRrhtR4/before-and-fater.jpg',         label: 'Melasma Before & After',    ba: true  },
+    { src: 'https://i.postimg.cc/QxgrZjSB/before-and-after-2.jpg',       label: 'Eczema Before & After',     ba: true  },
+    { src: 'https://i.postimg.cc/VNvytnwM/before-and-after-1.jpg',       label: 'Hyperpigmentation',         ba: true  },
+    { src: 'https://i.postimg.cc/mD10X4tB/before-vs-after.webp',         label: 'Acne Scars',                ba: true  },
+    { src: 'https://i.postimg.cc/TY6Z9ZGv/clear-skin.webp',              label: 'Clear Skin Result',         ba: true  },
+    { src: 'https://meltonaestheticsclinic.com/images/PRPHairlinebeforeandafter.jpg', label: 'PRP Hair', ba: true },
+    { src: 'https://i.postimg.cc/fWmjhfgV/ee-landingpage-imagegrid11-en-us.jpg', label: 'Eczema',           ba: false },
+    { src: 'https://i.postimg.cc/0yFbQLz6/1-whiteheads-types-of-acne-3270070.jpg', label: 'Acne',           ba: false },
+    { src: 'https://i.postimg.cc/TYhdDtMD/merlin-176197005-85f40b1e-f088-495b-8d0f-967d26703499-article-Large.webp', label: 'Skin Infections', ba: false },
+    { src: 'https://i.postimg.cc/tRc0Lyfc/psoriasis-vs-eczema-on-black-skin-atopic-dermatitis-2472547.webp', label: 'Psoriasis', ba: false },
+    { src: 'https://i.postimg.cc/L4gR4nz3/vitiligo-symptoms.jpg',        label: 'Vitiligo',                  ba: false },
+    { src: 'https://meltonaestheticsclinic.com/images/HydraFacial%20clinic%20spa%20around%20me%20,%20kilimani,%20ngong%20road,%20Kenya.jpg', label: 'HydraFacial', ba: false },
+    { src: 'https://meltonaestheticsclinic.com/images/service2.png',     label: 'Microneedling',             ba: false },
+    { src: 'https://meltonaestheticsclinic.com/images/service3.png',     label: 'Botox',                     ba: false },
+    { src: 'https://meltonaestheticsclinic.com/images/service4.jpg',     label: 'Chemical Peels',            ba: false },
+    { src: 'https://meltonaestheticsclinic.com/images/service5.png',     label: 'Dermal Fillers',            ba: false },
+    { src: 'https://meltonaestheticsclinic.com/images/UnderEyeFiller.jpg', label: 'Under Eye Filler',        ba: false },
+    { src: 'https://meltonaestheticsclinic.com/images/smileline.jpg',    label: 'Laugh Lines Filler',        ba: false },
+    { src: 'https://meltonaestheticsclinic.com/images/service8.png',     label: 'Mesotherapy',               ba: false },
+    { src: 'https://meltonaestheticsclinic.com/images/service10.png',    label: 'IV Glutathione',            ba: false },
+    { src: 'https://meltonaestheticsclinic.com/images/service14.jpg',    label: 'Melasma Treatment',         ba: false },
+    { src: 'https://meltonaestheticsclinic.com/images/DarkKnucklesTreatment.jpg', label: 'Dark Knuckles',   ba: false },
+    { src: 'https://meltonaestheticsclinic.com/images/ScarRemoval.jpg',  label: 'Scar Removal',             ba: false },
+    { src: 'https://i.postimg.cc/pXL1PK2M/keloids.avif',                 label: 'Keloids',                   ba: false },
+    { src: 'https://meltonaestheticsclinic.com/images/service17.jpg',    label: 'Stretch Marks',             ba: false },
+    { src: 'https://meltonaestheticsclinic.com/images/SkinTagsMolesWarts.jpg', label: 'Skin Tags & Moles',  ba: false },
+    { src: 'https://i.postimg.cc/FFg2r93B/Curettage.jpg',                label: 'Curettage',                 ba: false },
+    { src: 'https://i.postimg.cc/1t0Y3HnS/hair-loss.jpg',                label: 'Hair Loss',                 ba: false },
+    { src: 'https://i.postimg.cc/5t8LMxnS/skin-rashes.jpg',              label: 'Newborn Rashes',            ba: false },
+    { src: 'https://i.postimg.cc/DzQJMxz3/eczea-teewartment.webp',       label: 'Childhood Eczema',          ba: false },
+    { src: 'https://i.postimg.cc/sXDX0y8G/acne-paedtriact.jpg',          label: 'Paediatric Acne',           ba: false },
+    { src: 'https://i.postimg.cc/VsjhdDMP/Laser-Treatment.jpg',          label: 'Laser Therapy',             ba: false },
+    { src: 'https://i.postimg.cc/vBnN7vNg/Dermatology-services.jpg',     label: 'Consultation',              ba: false },
+  ];
+
+  const grid = document.getElementById('grid-all');
+  allImages.forEach((img, i) => {
+    const card = document.createElement('div');
+    card.className = 'photo-card';
+    card.dataset.index = i;
+    card.onclick = () => openLightboxDirect(i);
+    card.innerHTML = `
+      ${img.ba ? '<span class="ba-badge">B &amp; A</span>' : ''}
+      <img src="${img.src}" alt="${img.label}" loading="lazy">
+      <div class="photo-overlay"><span class="photo-label">${img.label}</span></div>
+    `;
+    grid.appendChild(card);
+  });
+
+  /* ── LIGHTBOX ── */
+  let lbCards = [];
+  let lbIndex = 0;
+
+  function openLightbox(card) {
+    const parent = card.parentElement;
+    lbCards = Array.from(parent.querySelectorAll('.photo-card'));
+    lbIndex = lbCards.indexOf(card);
+    showLb();
+  }
+
+  function openLightboxDirect(i) {
+    const img = allImages[i];
+    document.getElementById('lb-img').src = img.src;
+    document.getElementById('lb-img').alt = img.label;
+    document.getElementById('lb-caption').textContent = img.label;
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+    // store for nav
+    lbCards = allImages.map((_, idx) => idx);
+    lbIndex = i;
+  }
+
+  function showLb() {
+    const card = lbCards[lbIndex];
+    const img = card.querySelector('img');
+    const label = card.querySelector('.photo-label');
+    document.getElementById('lb-img').src = img.src;
+    document.getElementById('lb-img').alt = img.alt;
+    document.getElementById('lb-caption').textContent = label ? label.textContent : '';
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightboxBtn() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function closeLightbox(e) {
+    if (e.target === document.getElementById('lightbox')) closeLightboxBtn();
+  }
+
+  function lbNav(dir) {
+    if (typeof lbCards[0] === 'number') {
+      // "all" grid mode
+      lbIndex = (lbIndex + dir + allImages.length) % allImages.length;
+      openLightboxDirect(lbIndex);
+    } else {
+      lbIndex = (lbIndex + dir + lbCards.length) % lbCards.length;
+      showLb();
+    }
+  }
+
+  document.addEventListener('keydown', e => {
+    if (!document.getElementById('lightbox').classList.contains('open')) return;
+    if (e.key === 'Escape')     closeLightboxBtn();
+    if (e.key === 'ArrowRight') lbNav(1);
+    if (e.key === 'ArrowLeft')  lbNav(-1);
+  });
+</script>
+</body>
+</html>
