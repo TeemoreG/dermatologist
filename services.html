@@ -64,12 +64,13 @@
   .mobile-close { position: absolute; top: 20px; right: 20px; background: none; border: none; font-size: 1.4rem; cursor: pointer; color: var(--text-light); }
 
   /* NAV */
-  nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.97); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 0 24px; height: 64px; }
-  .nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-  .nav-brand img { height: 38px; width: auto; object-fit: contain; display: block; }
-  .nav-brand-text { display: flex; flex-direction: column; line-height: 1.2; }
-  .brand-name { font-family: var(--font-head); font-size: 1rem; font-weight: 700; color: var(--navy); }
-  .brand-sub { font-size: .62rem; color: var(--text-light); letter-spacing: .04em; text-transform: uppercase; }
+  nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.97); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 0 28px; height: 74px; transition: box-shadow .3s; }
+  nav.scrolled { box-shadow: 0 2px 20px rgba(13,43,69,.10); }
+  .nav-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .nav-brand img { height: 52px; width: auto; object-fit: contain; display: block; flex-shrink: 0; }
+  .nav-brand-text { display: flex; flex-direction: column; line-height: 1.25; }
+  .brand-name { font-family: var(--font-head); font-size: 1.05rem; font-weight: 700; color: var(--navy); line-height: 1.2; }
+  .brand-sub { font-size: .62rem; color: var(--text-light); letter-spacing: .05em; text-transform: uppercase; }
   .nav-links { list-style: none; display: flex; gap: 2px; }
   .nav-links a { font-size: .82rem; font-weight: 500; color: var(--text-mid); padding: 6px 11px; border-radius: 5px; transition: all .18s; }
   .nav-links a:hover { color: var(--navy); background: var(--off-white); }
@@ -88,7 +89,7 @@
   .page-hero-actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
 
   /* STICKY TABS */
-  .tabs-wrap { background: #fff; border-bottom: 1px solid var(--border); position: sticky; top: 64px; z-index: 90; }
+  .tabs-wrap { background: #fff; border-bottom: 1px solid var(--border); position: sticky; top: 74px; z-index: 90; }
   .tabs { display: flex; overflow-x: auto; scrollbar-width: none; max-width: 1160px; margin: 0 auto; padding: 0 16px; -webkit-overflow-scrolling: touch; }
   .tabs::-webkit-scrollbar { display: none; }
   .tab-btn { flex-shrink: 0; padding: 14px 16px; font-family: var(--font-body); font-size: .78rem; font-weight: 600; color: var(--text-light); background: none; border: none; border-bottom: 3px solid transparent; cursor: pointer; transition: all .18s; white-space: nowrap; }
@@ -145,6 +146,15 @@
   .cta-banner p { color: rgba(255,255,255,.55); font-size: .83rem; line-height: 1.6; }
   .cta-btns { display: flex; gap: 10px; flex-wrap: wrap; flex-shrink: 0; }
 
+  /* HOURS STRIP */
+  .hours-strip { background: var(--teal-light); border-bottom: 1px solid var(--teal-mid); padding: 11px 16px; }
+  .hours-strip-inner { max-width: 1160px; margin: 0 auto; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 6px 24px; }
+  .hours-strip-item { display: flex; align-items: center; gap: 7px; font-size: .78rem; color: var(--text-mid); }
+  .hours-strip-item svg { width: 13px; height: 13px; stroke: var(--teal); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+  .hours-strip-item strong { color: var(--navy); font-weight: 600; }
+  .hours-divider { width: 1px; height: 14px; background: var(--teal-mid); }
+  @media (max-width: 560px) { .hours-divider { display: none; } .hours-strip-inner { flex-direction: column; gap: 4px; } }
+
   /* FOOTER */
   footer { background: #07192a; color: rgba(255,255,255,.55); padding: 48px 0 0; margin-top: 0; }
   .ft { max-width: 1160px; margin: 0 auto; padding: 0 16px 40px; display: grid; grid-template-columns: 1fr; gap: 24px; }
@@ -183,7 +193,7 @@
 <!-- Nav -->
 <nav id="mainNav">
   <a class="nav-brand" href="index.html">
-    <img src="https://i.postimg.cc/7hm4jTFV/Mar_19_2026_04_14_20_PM.png" alt="Dr. Benard Logo">
+    <img src="https://i.postimg.cc/Y9KVWRW4/Chat-GPT-Image-Mar-20-2026-12-24-40-PM.png" alt="Dr. Benard Gichina Mukuria">
     <div class="nav-brand-text">
       <span class="brand-name">Dr. Benard Gichina Mukuria</span>
       <span class="brand-sub">General &amp; Pediatric Dermatologist &middot; Nairobi</span>
@@ -221,6 +231,26 @@
     </div>
   </div>
 </section>
+
+<!-- Hours strip -->
+<div class="hours-strip">
+  <div class="hours-strip-inner">
+    <div class="hours-strip-item">
+      <svg viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      <span><strong>Mon . Tue · Thu</strong> &nbsp;9:00 AM – 1:00 PM</span>
+    </div>
+    <div class="hours-divider"></div>
+    <div class="hours-strip-item">
+      <svg viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      <span><strong>Wed . Fri · Sat</strong> &nbsp;9:00 AM – 3:00 PM</span>
+    </div>
+    <div class="hours-divider"></div>
+    <div class="hours-strip-item">
+      <svg viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+      <span>Landmark Plaza, Argwings Kodhek Rd &mdash; <a href="contact.html" style="color:var(--teal);font-weight:600;">Get Directions</a></span>
+    </div>
+  </div>
+</div>
 
 <!-- Sticky tab bar -->
 <div class="tabs-wrap">
@@ -683,8 +713,8 @@
 <footer>
   <div class="ft">
     <div class="fb">
-      <div class="nav-logo">Dr. <span>Benard Gichina</span> Mukuria<small>General &amp; Pediatric Dermatologist</small></div>
-      <p>Expert skin care for all ages at Landmark Plaza, opposite Nairobi Hospital.</p>
+      <div class="nav-logo">Dr. <span>Benard Gichina</span> Mukuria<small>General &amp; Pediatric Dermatologist &middot; Nairobi</small></div>
+      <p>Expert skin care for all ages at Landmark Plaza, opposite Nairobi Hospital.<br>Mon–Sat &middot; 0722 676 339</p>
     </div>
     <div class="fc"><h4>Explore</h4><ul>
       <li><a href="index.html">Home</a></li>
@@ -717,7 +747,7 @@
     btn.classList.add('active');
     // Scroll to just below the sticky tab bar
     const tabsTop = document.querySelector('.tabs-wrap').getBoundingClientRect().top + window.scrollY;
-    window.scrollTo({ top: tabsTop - 64, behavior: 'smooth' });
+    window.scrollTo({ top: tabsTop - 74, behavior: 'smooth' });
   }
 
   // Sticky nav shadow on scroll

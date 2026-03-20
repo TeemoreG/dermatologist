@@ -233,31 +233,34 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 32px;
-  height: 72px;
+  padding: 0 28px;
+  height: 74px;
   background: var(--white);
   border-bottom: 1px solid var(--border);
   position: sticky;
   top: 0;
   z-index: 100;
+  transition: box-shadow .3s;
 }
 
+/* nav-brand — logo + text; overridden at bottom of file */
 .nav-brand {
   display: flex;
-  flex-direction: column;
-  line-height: 1.2;
+  align-items: center;
+  gap: 12px;
   text-decoration: none;
 }
 .nav-brand .brand-name {
   font-family: var(--font-head);
-  font-size: 1.15rem;
-  font-weight: 600;
+  font-size: 1.05rem;
+  font-weight: 700;
   color: var(--navy);
+  line-height: 1.2;
 }
 .nav-brand .brand-sub {
-  font-size: .73rem;
+  font-size: .62rem;
   color: var(--text-light);
-  letter-spacing: .04em;
+  letter-spacing: .05em;
   text-transform: uppercase;
 }
 
@@ -1238,4 +1241,36 @@ footer p {
   .reviews-grid  { grid-template-columns: 1fr; }
   .hero-stats    { gap: 20px; }
   .facts-grid    { grid-template-columns: repeat(2, 1fr); }
+}
+/* ---- override: clean nav-brand with logo ---- */
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+.nav-brand-img {
+  height: 52px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  flex-shrink: 0;
+}
+.nav-brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+}
+.brand-name {
+  font-family: var(--font-head);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.2;
+}
+.brand-sub {
+  font-size: .62rem;
+  color: var(--text-light);
+  letter-spacing: .05em;
+  text-transform: uppercase;
 }
