@@ -151,7 +151,7 @@
   .hero h1 em { font-style:italic;color:var(--teal-mid); }
   .hero-sub { font-size:.95rem;color:rgba(255,255,255,.68);line-height:1.75;max-width:480px;margin-bottom:28px; }
 
-  .hero-actions { display:flex;gap:10px;flex-wrap:wrap;margin-bottom:36px; }
+  .hero-actions { display:flex;gap:10px;flex-wrap:wrap;margin-bottom:0; }
 
   .hero-stats {
     display:flex;gap:0;border-top:1px solid rgba(255,255,255,.1);padding-top:24px;
@@ -178,17 +178,21 @@
   .hero-card-badge .hb-lbl    { font-size:.65rem;color:var(--text-light); }
 
   @media(max-width:900px){
-    .hero-inner { grid-template-columns:1fr;padding:36px 20px 48px; }
+    .hero { min-height:auto; align-items:flex-start; }
+    .hero-inner { grid-template-columns:1fr; padding:28px 20px 36px; }
     .hero-left { padding-right:0; }
-    .hero-right { flex-direction:row;height:180px;max-height:180px; }
-    .hero-actions .btn { flex:1;justify-content:center; }
+    .hero-right { display:none; }
     .hero h1 { font-size:2.4rem; }
   }
   @media(max-width:560px){
+    .hero { min-height:auto; align-items:flex-start; }
+    .hero-inner { padding:22px 20px 28px; }
     .hero-right { display:none; }
-    .hero h1 { font-size:2.1rem; }
-    .hero-stats { flex-wrap:wrap;gap:16px; }
-    .hero-stat { border-right:none;padding-right:0;margin-right:0; }
+    .hero h1 { font-size:2.3rem; line-height:1.1; }
+    .hero-sub { font-size:1.05rem; margin-bottom:18px; }
+    .hero-stats { flex-wrap:wrap; gap:16px; padding-top:16px; margin-top:4px; }
+    .hero-stat { border-right:none; padding-right:0; margin-right:0; }
+    .hs-num { font-size:1.8rem; }
   }
 
   /* ══════════════════════════════════════════
@@ -502,7 +506,7 @@
       </div>
       <h1><span id="typewriter-line1"></span><br><em id="typewriter-line2"></em></h1>
       <p class="hero-sub">From newborns to adults — acne, eczema, psoriasis, hyperpigmentation, skin infections, cosmetic &amp; surgical dermatology at Landmark Plaza, Nairobi.</p>
-      <div style="margin-bottom:28px;">
+      <div style="margin-bottom:16px;">
         <img src="https://i.postimg.cc/Jn5BFPP3/all_skin_types_label_icon_600nw_2638717127.webp" alt="For all skin types"
           style="width:100%;max-width:360px;height:auto;border-radius:12px;display:block;">
       </div>
