@@ -195,38 +195,81 @@ h1, h2, h3, h4, h5 {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(255,255,255,.98);
-  backdrop-filter: blur(6px);
+  background: var(--navy);
   z-index: 2000;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 28px;
+  gap: 10px;
+  padding: 60px 32px 40px;
 }
 .mobile-menu.open { display: flex; }
 
+/* Decorative teal line at top */
+.mobile-menu::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: var(--teal);
+}
+
 .mobile-menu a {
   font-family: var(--font-head);
-  font-size: 1.9rem;
+  font-size: 2rem;
   text-decoration: none;
-  color: var(--text);
+  color: rgba(255,255,255,.85);
   font-weight: 500;
+  letter-spacing: .02em;
+  padding: 10px 0;
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid rgba(255,255,255,.07);
+  transition: color .18s, padding-left .18s;
 }
-.mobile-menu a:hover,
-.mobile-menu a.active { color: var(--teal); }
+.mobile-menu a:last-of-type { border-bottom: none; }
+.mobile-menu a:hover { color: var(--teal-mid); padding-left: 12px; }
+.mobile-menu a.active { color: var(--teal-mid); font-style: italic; }
+
+/* Book Now button inside mobile menu */
+.mobile-menu .mob-book {
+  margin-top: 20px;
+  background: var(--teal);
+  color: #fff !important;
+  border-radius: 6px;
+  padding: 13px 32px !important;
+  font-style: normal !important;
+  border-bottom: none !important;
+  width: auto !important;
+  font-size: 1rem !important;
+  font-family: var(--font-body) !important;
+  font-weight: 700 !important;
+  letter-spacing: .04em;
+}
+.mobile-menu .mob-book:hover {
+  background: var(--teal-d, #14604f);
+  color: #fff !important;
+  padding-left: 32px !important;
+}
 
 .mobile-close {
   position: absolute;
-  top: 22px;
-  right: 22px;
-  background: none;
-  border: none;
-  font-size: 1.5rem;
+  top: 18px;
+  right: 20px;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
   cursor: pointer;
-  color: var(--text-light);
-  line-height: 1;
-  padding: 4px;
+  color: rgba(255,255,255,.7);
+  transition: background .18s;
 }
+.mobile-close:hover { background: rgba(255,255,255,.15); color: #fff; }
 
 /* ---------- NAVIGATION ---------- */
 nav {
